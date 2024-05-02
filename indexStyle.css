@@ -69,6 +69,14 @@ nav a:hover {
   text-decoration: underline;
 }
 
+.logo{
+  width: 40px;
+  height: auto;
+  border-radius: 50px;
+  margin-left: auto;
+  display: block;
+}
+
 section {
   padding: 20px;
 }
@@ -212,10 +220,7 @@ h5{
   font-family: "Raleway", sans-serif;
 }
 
-.logo{
-  display: block;
-  margin-left: auto;
-}
+
 
 .description{
   text-indent: 50px;

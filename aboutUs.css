@@ -210,8 +210,11 @@ h5{
 }
 
 .logo{
-  display: block;
+  width: 40px;
+  height: auto;
+  border-radius: 50px;
   margin-left: auto;
+  display: block;
 }
 
 .col{
