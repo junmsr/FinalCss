@@ -14,25 +14,33 @@
 
 <body>
     <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-           
-        </nav>
-        <img class="logo" src="images/webabies.png" t="logo">
-        
+        <div class="introduction">
+            <div class="navbar">
+                <div class="logo">
+                    <img class="logo" src="images/webabies.png" t="logo">
+                </div>
+                <div class="menu">
+                    <ul>
+                       <li><a href="index.html">Home</a></li> 
+                       <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                <div class="article">
+                    <h1>Addressing Mental Fatigue Experienced by College Students</h1>
+                    <p>Addressing mental fatigue among college students is crucial for their well-being and academic success. Strategies include promoting healthy habits, providing support services like counseling, fostering a supportive campus culture, and encouraging faculty flexibility. These efforts can help students manage stress and thrive in their academic pursuits.</p>
+                    <button onclick="location.href='#target-section'">EXPLORE MORE</button>  
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section class="introduction">
-        <h1>Addressing Mental Fatigue Experienced by College Students</h1>
-        <p>Addressing mental fatigue among college students is crucial for their well-being and academic success. Strategies include promoting healthy habits, providing support services like counseling, fostering a supportive campus culture, and encouraging faculty flexibility. These efforts can help students manage stress and thrive in their academic pursuits.</p>
-        
-    </section>
-
     <article class="Body">
-        <br>
+        <br><section id="target-section"></section>
         <h2>Issues Leading to Mental Fatigue</h2>
             <section class="acad-stress">
+                <img src="images/acads.jpg" alt="Academic Stress">
                 <div class="subtopic">
                     <p>Academic Stress</p>
                 </div>
@@ -41,6 +49,7 @@
             </section><br>
 
             <section class="time-management">
+                <img src="images/time.jpg" alt="Time Management">
                 <div class="subtopic">
                     <p>Time Management</p>
                 </div>
@@ -50,6 +59,7 @@
 
 
             <section class="financial-struggle">
+                <img src="images/financial.jpg" alt="Financial Struggle">
                 <div class="subtopic">
                     <p>Financial Struggle</p>
                 </div>
@@ -59,6 +69,7 @@
 
 
             <section class="peer-pressure">
+                <img src="images/peer.jpg" alt="Peer Pressure">
                 <div class="subtopic">
                     <p>Peer Pressure</p>
                 </div>
@@ -68,6 +79,7 @@
 
 
             <section class="sleep-deprivation">
+                <img src="images/sleep.jpg" alt="Sleep Deprivation">
                 <div class="subtopic">
                     <p>Sleep Deprivation</p>
                 </div>
@@ -75,6 +87,46 @@
                  <button onclick="window.location.href = 'sleep.html';" class="button">Read More</button>
             </section><br><br>
     </article>
+
+    <section class="feedback-container">
+        <div class="feedback-content">
+            <form action="send.php" method="POST" class="form">
+                <fieldset>
+                    <legend>FEEDBACK</legend>
+                    <label for="username">Username:</label><br>
+                    <input type="text" class="username" id="username" placeholder="Username" name="username"><br><br>
+
+                    <label for="email">Email:</label><br>
+                    <input type="email" class="email" id="email" placeholder="Email" name="email"><br><br>
+
+                    <label for="experience">What is your overall experience throughout the website?</label><br>
+                    <ul class="info_select">
+                        <li><input type="radio" name="view" value="excellent" id="excellent" required> 
+                              <label for="excellent">excellent</label>
+                             <div class="check"></div>
+                        </li>
+                        <li><input type="radio" name="view" value="good" id="good"> 
+                             <label for="good"> good</label>
+                             <div class="check"></div>
+                        </li>
+                        <li><input type="radio" name="view" value="neutral" id="neutral">
+                            <label for="neutral">neutral</label>
+                            <div class="check"></div>
+                        </li>
+                        <li><input type="radio" name="view" value="poor" id="poor"> 
+                             <label for="poor">poor</label>
+                             <div class="check"></div>
+                        </li>
+                    </ul><br><br> 
+                    <label for="message">If you have specific feedback, please write to us...</label><br>
+                    <textarea placeholder="Write your message..." class="message" name="message"></textarea>
+                    <br><br>
+                    <input type="submit" value="Submit" class="btn">
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <script src="script.js"></script>
 
     <footer>
 

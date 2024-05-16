@@ -20,17 +20,39 @@ header {
   background-color: #382315;
   padding: 20px;
   display: flex;
-  /* text-align: right; */
 }
 
-nav a {
-  color: #E8DFCA;
+.navbar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 100px;
+  position: relative;
+}
+.navbar .log img{
+  width: 200px;
+  position: relative;
+}
+.navbar .menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .menu ul{
+  display: flex;
+  list-style: none;
+}
+.navbar .menu ul a{
   text-decoration: none;
-  margin-right: 20px;
+  text-transform: uppercase;
+  color: #E8DFCA;
+  padding: 0px 20px;
+  font-size: 18px;
 }
-
-nav a:hover {
-  text-decoration: underline;
+.navbar .menu ul a:hover{
+  color:#AB8E73;
+  transition: 0.5s ease;
 }
 
 section {
@@ -123,9 +145,13 @@ a:hover{
   position: relative; 
   bottom: 0px;
   left: 0px;
-  padding-top: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   width: 100%;
+}
+h5{
   text-align: center;
+  font-family: "Raleway", sans-serif;
 }
 
 .line{
