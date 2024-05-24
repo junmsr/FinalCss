@@ -28,4 +28,3 @@
                 $stmt->close();
                 $conn->close();
             }
-            ?>
