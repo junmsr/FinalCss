@@ -17,7 +17,7 @@
         <div class="introduction">
             <div class="navbar">
                 <div class="logo">
-                    <img class="logo" src="images/webabies.png" t="logo">
+                    <img class="logo" src="images/webabies.png" alt="logo">
                 </div>
                 <div class="menu">
                     <ul>
@@ -90,30 +90,30 @@
 
     <section class="feedback-container">
         <div class="feedback-content">
-            <form action="send.php" method="POST" class="form">
+            <form action="insert.php" method="POST" class="form">
                 <fieldset>
                     <legend>FEEDBACK</legend>
-                    <label for="username">Username:</label><br>
-                    <input type="text" class="username" id="username" placeholder="Username" name="username"><br><br>
+                    <label for="name">Name:</label><br>
+                    <input type="text" class="name" id="name" placeholder="name" name="name"><br><br>
 
                     <label for="email">Email:</label><br>
                     <input type="email" class="email" id="email" placeholder="Email" name="email"><br><br>
 
-                    <label for="experience">What is your overall experience throughout the website?</label><br>
+                    <label for="rate">What is your overall experience throughout the website?</label><br>
                     <ul class="info_select">
-                        <li><input type="radio" name="view" value="excellent" id="excellent" required> 
+                        <li><input type="radio" name="rate" value="excellent" id="excellent" required> 
                               <label for="excellent">excellent</label>
                              <div class="check"></div>
                         </li>
-                        <li><input type="radio" name="view" value="good" id="good"> 
+                        <li><input type="radio" name="rate" value="good" id="good"> 
                              <label for="good"> good</label>
                              <div class="check"></div>
                         </li>
-                        <li><input type="radio" name="view" value="neutral" id="neutral">
+                        <li><input type="radio" name="rate" value="neutral" id="neutral">
                             <label for="neutral">neutral</label>
                             <div class="check"></div>
                         </li>
-                        <li><input type="radio" name="view" value="poor" id="poor"> 
+                        <li><input type="radio" name="rate" value="poor" id="poor"> 
                              <label for="poor">poor</label>
                              <div class="check"></div>
                         </li>
@@ -124,9 +124,43 @@
                     <input type="submit" value="Submit" class="btn">
                 </fieldset>
             </form>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "mentalfatiguedb";
+        
+                $conn = new mysqli($servername, $username, $password, $dbname);
+        
+                if ($conn->connect_error) {
+                    die("Error" . $conn->connect_error);
+                }
+        
+                $name = $conn->real_escape_string($_POST['name']);
+                $email = $conn->real_escape_string($_POST['email']);
+                $rate = $conn->real_escape_string($_POST['rate']);
+                $message = $conn->real_escape_string($_POST['message']);
+        
+                $stmt = $conn->prepare("INSERT INTO users (name, email, rate, message) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param("ssss", $name, $email, $rate, $message);
+        
+                if ($stmt->execute()) {
+                    echo "Thank you for your feedback!";
+                } else {
+                    echo "Sorry, feedback can't be recorded." . $stmt->error;
+                }
+        
+                // Close connections
+                $stmt->close();
+                $conn->close();
+            }
+            ?>
         </div>
     </section>
     <script src="script.js"></script>
+
+    
 
     <footer>
 
